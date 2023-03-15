@@ -1,17 +1,8 @@
 #!/bin/bash
-echo "=================================================="
-echo -e "\033[0;35m"
-echo " :::    ::: ::::::::::: ::::    :::  ::::::::  :::::::::  :::::::::: ::::::::  ";
-echo " :+:   :+:      :+:     :+:+:   :+: :+:    :+: :+:    :+: :+:       :+:    :+: ";
-echo " +:+  +:+       +:+     :+:+:+  +:+ +:+    +:+ +:+    +:+ +:+       +:+        ";
-echo " +#++:++        +#+     +#+ +:+ +#+ +#+    +:+ +#+    +:+ +#++:++#  +#++:++#++ ";
-echo " +#+  +#+       +#+     +#+  +#+#+# +#+    +#+ +#+    +#+ +#+              +#+ ";
-echo " #+#   #+#  #+# #+#     #+#   #+#+# #+#    #+# #+#    #+# #+#       #+#    #+# ";
-echo " ###    ###  #####      ###    ####  ########  #########  ########## ########  ";
-echo -e "\e[0m"
-echo "=================================================="
 
-sleep 2
+source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
+
+printLogo
 
 echo -e "\e[1m\e[32m1. Updating dependencies... \e[0m" && sleep 1
 sudo apt-get update
@@ -55,7 +46,7 @@ echo "=================================================="
 
 echo -e "\e[1m\e[32m5. Downloading Node Monitoring config files ... \e[0m" && sleep 1
 cd $HOME
-rm -rf cosmos_node_monitoring
-git clone https://github.com/kj89/cosmos_node_monitoring.git
+rm -rf cosmos_monitoring
+git clone https://github.com/R1M-NODES/cosmos_monitoring.git
 
-chmod +x $HOME/cosmos_node_monitoring/add_validator.sh
+chmod +x $HOME/cosmos_monitoring/add_validator.sh

@@ -5,7 +5,7 @@
 ### Install exporters on validator node
 First of all you will have to install exporters on validator node. For that you can use one-liner below
 ```
-wget -O install_exporters.sh https://raw.githubusercontent.com/kj89/cosmos_node_monitoring/master/install_exporters.sh && chmod +x install_exporters.sh && ./install_exporters.sh
+bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/install_exporters.sh)
 ```
 
 | KEY |VALUE |
@@ -32,17 +32,17 @@ Ubuntu 20.04 / 1 VCPU / 2 GB RAM / 20 GB SSD
 ### Install monitoring stack
 To install monitirng stack you can use one-liner below
 ```
-wget -O install_monitoring.sh https://raw.githubusercontent.com/kj89/cosmos_node_monitoring/master/install_monitoring.sh && chmod +x install_monitoring.sh && ./install_monitoring.sh
+bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/install_monitoring.sh)
 ```
 
 ### Copy _.env.example_ into _.env_
 ```
-cp $HOME/cosmos_node_monitoring/config/.env.example $HOME/cosmos_node_monitoring/config/.env
+cp $HOME/cosmos_monitoring/config/.env.example $HOME/cosmos_monitoring/config/.env
 ```
 
 ### Update values in _.env_ file
 ```
-vim $HOME/cosmos_node_monitoring/config/.env
+nano $HOME/cosmos_monitoring/config/.env
 ```
 
 | KEY | VALUE |
@@ -52,24 +52,24 @@ vim $HOME/cosmos_node_monitoring/config/.env
 
 ### Export _.env_ file values into _.bash_profile_
 ```
-echo "export $(xargs < $HOME/cosmos_node_monitoring/config/.env)" > $HOME/.bash_profile
+echo "export $(xargs < $HOME/cosmos_monitoring/config/.env)" > $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
 ### Add validator into _prometheus_ configuration file
 To add validator use command with specified `VALIDATOR_IP`, `PROM_PORT`, `VALOPER_ADDRESS`, `WALLET_ADDRESS` and `PROJECT_NAME`
 ```
-$HOME/cosmos_node_monitoring/add_validator.sh VALIDATOR_IP PROM_PORT VALOPER_ADDRESS WALLET_ADDRESS PROJECT_NAME
+$HOME/cosmos_monitoring/add_validator.sh VALIDATOR_IP PROM_PORT VALOPER_ADDRESS WALLET_ADDRESS PROJECT_NAME
 ```
 
-> example: ```$HOME/cosmos_node_monitoring/add_validator.sh 1.2.3.4 26660 cosmosvaloper1s9rtstp8amx9vgsekhf3rk4rdr7qvg8dlxuy8v cosmos1s9rtstp8amx9vgsekhf3rk4rdr7qvg8d6jg3tl cosmos```
+> example: ```$HOME/cosmos_monitoring/add_validator.sh 1.2.3.4 26660 cosmosvaloper1s9rtstp8amx9vgsekhf3rk4rdr7qvg8dlxuy8v cosmos1s9rtstp8amx9vgsekhf3rk4rdr7qvg8d6jg3tl cosmos```
 
 To add more validators just run command above with validator values
 
 ### Run docker-compose
 Deploy the monitoring stack
 ```
-cd $HOME/cosmos_node_monitoring && docker-compose up -d
+cd $HOME/cosmos_monitoring && docker-compose up -d
 ```
 
 ports used:
@@ -168,7 +168,7 @@ Grafana dashboard is devided into 4 sections:
 
 ## Cleanup all container data
 ```
-cd $HOME/cosmos_node_monitoring
+cd $HOME/cosmos_monitoring
 docker-compose down
 docker volume prune -f
 ```
