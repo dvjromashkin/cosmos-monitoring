@@ -129,12 +129,12 @@
       "links": [
         {
           "targetBlank": true,
-          "title": "Website",
-          "url": "http;//kjnodes.com"
+          "title": "Git Hub",
+          "url": "https://github.com/R1M-NODES"
         }
       ],
       "options": {
-        "content": "\r\n<table style=\"width:100%; height:100%;border:0px solid black;\">\r\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \"><center><img width=\"300px\" src=\"https://i.ibb.co/zXm7nzr/horiz-color.png\" /></td>\r\n</table>",
+        "content": "\r\n<table style=\"width:100%; height:100%;border:0px solid black;\">\r\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \"><center><img width=\"300px\" src=\"https://ibb.co/3Fswxmc\" /></td>\r\n</table>",
         "mode": "html"
       },
       "pluginVersion": "8.4.4",
