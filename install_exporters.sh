@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
+
 read -p "Enter bond_denom value, for example, ubld for Agoric: " BOND_DENOM
 read -p "Enter bench_prefix value, for example, agoric for Agoric: " BENCH_PREFIX
 read -p "Enter rpc_port value or hit Enter for default port [26657]: " RPC_PORT
@@ -7,15 +9,15 @@ RPC_PORT=${RPC_PORT:-26657}
 read -p "Enter grpc_port value or hit Enter for default port [9090]: " GRPC_PORT
 GRPC_PORT=${GRPC_PORT:-9090}
 
-echo '================================================='
-echo -e "bond_denom: \e[1m\e[32m$BOND_DENOM\e[0m"
-echo -e "bench_prefix: \e[1m\e[32m$BENCH_PREFIX\e[0m"
-echo -e "rpc_port: \e[1m\e[32m$RPC_PORT\e[0m"
-echo -e "grpc_port: \e[1m\e[32m$GRPC_PORT\e[0m"
-echo '================================================='
-sleep 3
+printDilimeter
+printGreen "Bond denom: \e[1m\e[32m$BOND_DENOM\e[0m"
+printGreen "Bench prefix: \e[1m\e[32m$BENCH_PREFIX\e[0m"
+printGreen "RPC port: \e[1m\e[32m$RPC_PORT\e[0m"
+printGreen "gRPC port: \e[1m\e[32m$GRPC_PORT\e[0m"
+printDelimiter
+sleep 2
 
-echo -e "\e[1m\e[32m1. Installing cosmos-exporter... \e[0m" && sleep 1
+printGreen "Installing cosmos-exporter" && sleep 1
 # install cosmos-exporter
 wget https://github.com/solarlabsteam/cosmos-exporter/releases/download/v0.2.2/cosmos-exporter_0.2.2_Linux_x86_64.tar.gz
 tar xvfz cosmos-exporter*
@@ -45,7 +47,7 @@ KillSignal=SIGTERM
 WantedBy=multi-user.target
 EOF
 
-echo -e "\e[1m\e[32m2. Installing node-exporter... \e[0m" && sleep 1
+printGreen "Installing node-exporter" && sleep 1
 # install node-exporter
 wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
 tar xvfz node_exporter-*.*-amd64.tar.gz
@@ -75,5 +77,5 @@ sudo systemctl start cosmos-exporter
 sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 
-echo -e "\e[1m\e[32mInstallation finished... \e[0m" && sleep 1
-echo -e "\e[1m\e[32mPlease make sure ports 9100 and 9300 are open \e[0m" && sleep 1
+printGreen "Installation finished" && sleep 1
+printGreen "Please make sure ports 9100 and 9300 are open" && sleep 1
