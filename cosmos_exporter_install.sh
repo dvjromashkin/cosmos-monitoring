@@ -39,7 +39,7 @@ printGreen "Setup service: cosmos-${BENCH_PREFIX}-exporter.service"
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/cosmos-${BENCH_PREFIX}-exporter.service
 [Unit]
-Description=Cosmos $BENCH_PREFIX Exporter
+Description=Cosmos ${BENCH_PREFIX^} Exporter
 After=network-online.target
 
 [Service]
