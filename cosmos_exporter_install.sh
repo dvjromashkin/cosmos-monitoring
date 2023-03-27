@@ -2,8 +2,9 @@
 
 source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
 
-read -p "Enter bond_denom value, for example, [ubld for Agoric]: " BOND_DENOM
-read -p "Enter bench_prefix value, for example, [agoric for Agoric]: " BECH_PREFIX
+read -p "Enter exporter service name in lower case [for example: agoric]: " SERVICE_NAME
+read -p "Enter bond_denom value [for example: ubld for Agoric]: " BOND_DENOM
+read -p "Enter bench_prefix value [for example: agoric for Agoric]: " BECH_PREFIX
 read -p "Enter rpc_port value or hit Enter for default port [26657]: " RPC_PORT
 RPC_PORT=${RPC_PORT:-26657}
 read -p "Enter port value for cosmos exporter or hit Enter for default port [9300]: " COSMOS_EXPORTER_PORT
@@ -12,6 +13,7 @@ read -p "Enter grpc_port value or hit Enter for default port [9090]: " GRPC_PORT
 GRPC_PORT=${GRPC_PORT:-9090}
 
 printDilimeter
+printGreen "Service name: \e[1m\e[32m$SERVICE_NAME\e[0m"
 printGreen "Bond denom: \e[1m\e[32m$BOND_DENOM\e[0m"
 printGreen "Bench prefix: \e[1m\e[32m$BECH_PREFIX\e[0m"
 printGreen "RPC port: \e[1m\e[32m$RPC_PORT\e[0m"
@@ -35,11 +37,11 @@ else
 fi
 
 printDelimiter
-printGreen "Setup service: cosmos-${BECH_PREFIX}-exporter.service"
+printGreen "Setup service: cosmos-${SERVICE_NAME}-exporter.service"
 
-sudo tee <<EOF >/dev/null /etc/systemd/system/cosmos-${BECH_PREFIX}-exporter.service
+sudo tee <<EOF >/dev/null /etc/systemd/system/cosmos-${SERVICE_NAME}-exporter.service
 [Unit]
-Description=Cosmos ${BECH_PREFIX^} Exporter
+Description=Cosmos ${SERVICE_NAME^} Exporter
 After=network-online.target
 
 [Service]
@@ -59,8 +61,8 @@ WantedBy=multi-user.target
 EOF
 
 sudo systemctl daemon-reload
-sudo systemctl enable cosmos-${BECH_PREFIX}-exporter
-sudo systemctl start cosmos-${BECH_PREFIX}-exporter
+sudo systemctl enable cosmos-${SERVICE_NAME}-exporter
+sudo systemctl start cosmos-${SERVICE_NAME}-exporter
 
 printGreen "Installation finished" && sleep 1
 printGreen "Please make sure ports $COSMOS_EXPORTER_PORT is open" && sleep 1
