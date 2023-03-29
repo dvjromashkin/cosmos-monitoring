@@ -3,9 +3,13 @@
 ## Prerequisites
 
 ### Install exporters on validator node
-First of all you will have to install exporters on validator node. For that you can use one-liner below
+First of all you will have to install node exporter on validator node. For that you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/install_exporters.sh)
+bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/node_exporter_install.sh)
+```
+First of all you will have to install cosmos exporter on validator node. For that you can use one-liner below
+```
+bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/cosmos_exporter_install.sh)
 ```
 
 | KEY |VALUE |
