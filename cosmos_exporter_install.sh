@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
+source <(curl -s https://raw.githubusercontent.com/staketown/utils/master/common.sh)
 
 read -p "Enter exporter service name in lower case [for example: agoric]: " SERVICE_NAME
 read -p "Enter bond_denom value [for example: ubld for Agoric]: " BOND_DENOM

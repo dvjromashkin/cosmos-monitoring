@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
+source <(curl -s https://raw.githubusercontent.com/staketown/utils/master/common.sh)
 
 printLogo
 
@@ -16,13 +16,13 @@ sudo pip install yq
 
 echo ""
 printGreen "Install Docker and docker compose" && sleep 1
-bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/docker-install.sh)
+bash <(curl -s https://raw.githubusercontent.com/staketown/utils/master/docker-install.sh)
 
 
 echo ""
 printGreen "Downloading Node Monitoring config files" && sleep 1
 cd $HOME
 rm -rf cosmos_monitoring
-git clone https://github.com/R1M-NODES/cosmos_monitoring.git
+git clone https://github.com/staketown/cosmos_monitoring.git
 
 chmod +x $HOME/cosmos_monitoring/add_validator.sh

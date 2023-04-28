@@ -5,7 +5,7 @@
 ### Install exporters on validator node
 First of all you will have to install node exporter on validator node. For that you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/node_exporter_install.sh)
+bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos_monitoring/master/node_exporter_install.sh)
 ```
 First of all you will have to install cosmos exporter on validator node. For that you can use one-liner below
 ```
@@ -36,7 +36,7 @@ Ubuntu 20.04 / 1 VCPU / 2 GB RAM / 20 GB SSD
 ### Install monitoring stack
 To install monitirng stack you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/install_monitoring.sh)
+bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos_monitoring/master/install_monitoring.sh)
 ```
 
 ### Copy _.env.example_ into _.env_

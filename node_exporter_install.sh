@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
+source <(curl -s https://raw.githubusercontent.com/staketown/utils/master/common.sh)
 
 printGreen "Installing node-exporter" && sleep 1
 # install node-exporter
