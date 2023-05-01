@@ -5,11 +5,11 @@
 ### Install exporters on validator node
 First of all you will have to install node exporter on validator node. For that you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos_monitoring/master/node_exporter_install.sh)
+bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos-monitoring/master/node_exporter_install.sh)
 ```
 First of all you will have to install cosmos exporter on validator node. For that you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/cosmos_monitoring/master/cosmos_exporter_install.sh)
+bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos-monitoring/master/cosmos_exporter_install.sh)
 ```
 
 | KEY |VALUE |
@@ -36,17 +36,17 @@ Ubuntu 20.04 / 1 VCPU / 2 GB RAM / 20 GB SSD
 ### Install monitoring stack
 To install monitirng stack you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos_monitoring/master/install_monitoring.sh)
+bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos-monitoring/master/install_monitoring.sh)
 ```
 
 ### Copy _.env.example_ into _.env_
 ```
-cp $HOME/cosmos_monitoring/config/.env.example $HOME/cosmos_monitoring/config/.env
+cp $HOME/cosmos-monitoring/config/.env.example $HOME/cosmos-monitoring/config/.env
 ```
 
 ### Update values in _.env_ file
 ```
-nano $HOME/cosmos_monitoring/config/.env
+nano $HOME/cosmos-monitoring/config/.env
 ```
 
 | KEY | VALUE |
@@ -56,24 +56,24 @@ nano $HOME/cosmos_monitoring/config/.env
 
 ### Export _.env_ file values into _.bash_profile_
 ```
-echo "export $(xargs < $HOME/cosmos_monitoring/config/.env)" > $HOME/.bash_profile
+echo "export $(xargs < $HOME/cosmos-monitoring/config/.env)" > $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
 ### Add validator into _prometheus_ configuration file
 To add validator use command with specified `VALIDATOR_IP`, `PROM_PORT`, `VALOPER_ADDRESS`, `WALLET_ADDRESS` and `PROJECT_NAME`
 ```
-$HOME/cosmos_monitoring/add_validator.sh VALIDATOR_IP PROM_PORT VALOPER_ADDRESS WALLET_ADDRESS PROJECT_NAME
+$HOME/cosmos-monitoring/add_validator.sh VALIDATOR_IP PROM_PORT VALOPER_ADDRESS WALLET_ADDRESS PROJECT_NAME
 ```
 
-> example: ```$HOME/cosmos_monitoring/add_validator.sh 1.2.3.4 26660 cosmosvaloper1s9rtstp8amx9vgsekhf3rk4rdr7qvg8dlxuy8v cosmos1s9rtstp8amx9vgsekhf3rk4rdr7qvg8d6jg3tl cosmos```
+> example: ```$HOME/cosmos-monitoring/add_validator.sh 1.2.3.4 26660 cosmosvaloper1s9rtstp8amx9vgsekhf3rk4rdr7qvg8dlxuy8v cosmos1s9rtstp8amx9vgsekhf3rk4rdr7qvg8d6jg3tl cosmos```
 
 To add more validators just run command above with validator values
 
 ### Run docker-compose
 Deploy the monitoring stack
 ```
-cd $HOME/cosmos_monitoring && docker-compose up -d
+cd $HOME/cosmos-monitoring && docker-compose up -d
 ```
 
 ports used:
