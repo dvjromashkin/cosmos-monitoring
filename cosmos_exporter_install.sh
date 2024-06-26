@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-source <(curl -s https://raw.githubusercontent.com/staketown/utils/master/common.sh)
-
 read -p "Enter exporter service name in lower case [for example: agoric]: " SERVICE_NAME
 read -p "Enter bond_denom value [for example: ubld for Agoric]: " BOND_DENOM
 read -p "Enter bench_prefix value [for example: agoric for Agoric]: " BECH_PREFIX
@@ -26,7 +24,7 @@ printGreen "Installing cosmos-exporter" && sleep 1
 FILE=/usr/bin/cosmos-exporter
 if [ ! -f "$FILE" ]; then
     # install cosmos-exporter
-    wget https://github.com/solarlabsteam/cosmos-exporter/releases/download/v0.2.2/cosmos-exporter_0.2.2_Linux_x86_64.tar.gz
+    wget https://github.com/solarlabsteam/cosmos-exporter/releases/download/v0.3.0/cosmos-exporter_0.3.0_Linux_x86_64.tar.gz
     tar xvfz cosmos-exporter*
     sudo cp ./cosmos-exporter /usr/bin
     rm cosmos-exporter* -rf
