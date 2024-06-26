@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-source <(curl -s https://raw.githubusercontent.com/staketown/utils/master/common.sh)
-
 printGreen "Installing node-exporter" && sleep 1
 # install node-exporter
-wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.8.1/node_exporter-1.8.1.linux-amd64.tar.gz
 tar xvfz node_exporter-*.*-amd64.tar.gz
 sudo mv node_exporter-*.*-amd64/node_exporter /usr/local/bin/
 rm node_exporter-* -rf
