@@ -5,19 +5,19 @@
 ### Install exporters on validator node
 First of all you will have to install node exporter on validator node. For that you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos-monitoring/master/node_exporter_install.sh)
+bash <(curl -s https://raw.githubusercontent.com/dvjromashkin/cosmos-monitoring/master/node_exporter_install.sh)
 ```
 First of all you will have to install cosmos exporter on validator node. For that you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos-monitoring/master/cosmos_exporter_install.sh)
+bash <(curl -s https://raw.githubusercontent.com/dvjromashkin/cosmos-monitoring/master/cosmos_exporter_install.sh)
 ```
 
 | KEY |VALUE |
 |---------------|-------------|
-| **bond_denom** | Denominated token name, for example, `ubld` for Agoric. You can find it in genesis file |
-| **bench_prefix** | Prefix for chain addresses, for example, `agoric` for Agoric. You can find it in public addresses like this **agoric**_valoper1zyyz4m9ytdf60fn9yaafx7uy7h463n7alv2ete_ |
-| **rpc_port** | Your validator `rpc` port that is defined in `config.toml` file. Default value for aura is `26657` |
-| **grpc_port** | Your validator `grpc` port that is defined in `app.toml` file. Default value for aura is `9090` |
+| **bond_denom** | Denominated token name, for example, `utia` for Celestia. You can find it in genesis file |
+| **bench_prefix** | Prefix for chain addresses, for example, `agoric` for Celestia. You can find it in public addresses like this **celestia**_valoper1zyyz4m9ytdf60fn9yaafx7uy7h463n7alv2ete_ |
+| **rpc_port** | Your validator `rpc` port that is defined in `config.toml` file. Default value for celestia is `26657` |
+| **grpc_port** | Your validator `grpc` port that is defined in `app.toml` file. Default value for celestia is `9090` |
 
 make sure prometheus is enabled in validator `config.toml` file
 
@@ -36,7 +36,7 @@ Ubuntu 20.04 / 1 VCPU / 2 GB RAM / 20 GB SSD
 ### Install monitoring stack
 To install monitirng stack you can use one-liner below
 ```
-bash <(curl -s https://raw.githubusercontent.com/staketown/cosmos-monitoring/master/install_monitoring.sh)
+bash <(curl -s https://raw.githubusercontent.com/dvjromashkin/cosmos-monitoring/master/install_monitoring.sh)
 ```
 
 ### Copy _.env.example_ into _.env_
@@ -66,7 +66,7 @@ To add validator use command with specified `VALIDATOR_IP`, `PROM_PORT`, `VALOPE
 $HOME/cosmos-monitoring/add_validator.sh VALIDATOR_IP PROM_PORT VALOPER_ADDRESS WALLET_ADDRESS PROJECT_NAME
 ```
 
-> example: ```$HOME/cosmos-monitoring/add_validator.sh 1.2.3.4 26660 cosmosvaloper1s9rtstp8amx9vgsekhf3rk4rdr7qvg8dlxuy8v cosmos1s9rtstp8amx9vgsekhf3rk4rdr7qvg8d6jg3tl cosmos```
+> example: ```$HOME/cosmos-monitoring/add_validator.sh 1.2.3.4 26660 celestiavaloper1s9rtstp8amx9vgsekhf3rk4rdr7qvg8dlxuy8v celestia1s9rtstp8amx9vgsekhf3rk4rdr7qvg8d6jg3tl celestia```
 
 To add more validators just run command above with validator values
 
@@ -116,6 +116,7 @@ ports used:
 ![image](https://user-images.githubusercontent.com/50621007/160623555-ae7e9d54-9a0b-4ec9-9b1d-278fafe06682.png)
 
 4.3 Change url to your chain data explorer and hit **"Save"**
+example: https://explorers.cryptech.com.ua/staking/${__data.fields["address"]} 
 
 ![image](https://user-images.githubusercontent.com/50621007/160623647-1f23a1dc-35b0-494f-8ba4-fb4d90f1b0c5.png)
 
